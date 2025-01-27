@@ -4,10 +4,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.core.database.model import BaseModel
 from src.core.database.db_helper import db_helper
+from src.core.types.user_id import UserIDType
 from .mixins import IdIntPkMixin
 
 
-class User(BaseModel, IdIntPkMixin, SQLAlchemyBaseUserTable[int]):
+class User(BaseModel, IdIntPkMixin, SQLAlchemyBaseUserTable[UserIDType]):
     pass
 
 
