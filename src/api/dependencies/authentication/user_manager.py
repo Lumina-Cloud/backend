@@ -1,5 +1,5 @@
 from fastapi import Depends
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Annotated
 
 from src.core.authentication.user_manager import UserManager
 from .user import get_user_db
@@ -9,6 +9,6 @@ if TYPE_CHECKING:
 
 
 async def get_user_manager(
-    user_db: SQLAlchemyUserDatabase = Depends(get_user_db),
+    user_db: Annotated["SQLAlchemyUserDatabase", Depends(get_user_db)],
 ):
     yield UserManager(user_db)

@@ -1,6 +1,6 @@
 import logging
 
-from typing import TYPE_CHECKING
+from typing import Optional, TYPE_CHECKING
 from fastapi_users import BaseUserManager, IntegerIDMixin
 
 from src.core.config import settings
@@ -20,7 +20,7 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, UserIDType]):
     async def on_after_register(
         self,
         user: User,
-        request: Request | None = None,
+        request: Optional["Request"] = None,
     ):
         log.warning("User %r has registered.", user.id)
 
@@ -28,7 +28,7 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, UserIDType]):
         self,
         user: User,
         token: str,
-        request: Request | None = None,
+        request: Optional["Request"] = None,
     ):
         log.warning("User %r has forgot their password. Reset token %r", user.id, token)
 
@@ -36,7 +36,7 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, UserIDType]):
         self,
         user: User,
         token: str,
-        request: Request | None = None,
+        request: Optional["Request"] = None,
     ):
         log.warning(
             "Verification requested for user %r. Verification token %r", user.id, token
