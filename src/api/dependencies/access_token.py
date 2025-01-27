@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from sqlalchemy.ext.asyncio import AsyncSession
 
 
-async def get_access_token_db(
+async def get_accesstoken_db(
     session: AsyncSession = Depends(db_helper.session_getter),
 ):
     yield SQLAlchemyAccessTokenDatabase(session, AccessToken)
