@@ -40,12 +40,14 @@ class DatabaseConfig(BaseModel):
 
 class AccessTokenConfig(BaseModel):
     lifetime: int = 3600
+    reset_password_token_secret: str
+    verification_token_secret: str
 
 
 class Settings(BaseSettings):
     logging: LoggingConfig = LoggingConfig()
     database: DatabaseConfig
-    access_token: AccessTokenConfig = AccessTokenConfig()
+    access_token: AccessTokenConfig
 
     class Config:
         env_file = BASE_DIR / ".env"
