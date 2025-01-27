@@ -38,9 +38,14 @@ class DatabaseConfig(BaseModel):
     max_overflow: int = 10
 
 
+class AccessTokenConfig(BaseModel):
+    lifetime: int = 3600
+
+
 class Settings(BaseSettings):
     logging: LoggingConfig = LoggingConfig()
     database: DatabaseConfig
+    access_token: AccessTokenConfig = AccessTokenConfig()
 
     class Config:
         env_file = BASE_DIR / ".env"
