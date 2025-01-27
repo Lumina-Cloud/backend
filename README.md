@@ -16,6 +16,17 @@ or
 ```bash
 make run
 ```
+### Migrations
+
+Create:
+```bash
+make create-migration msg='Some message'
+```
+
+Migrate:
+```bash
+make migrate
+```
 
 ### Format code with Ruff
 
@@ -24,4 +35,4 @@ make format
 ```
 
 ### To-do
-- [ ] Customize migration formatting for alembic via ruff
+- [X] Customize migration formatting for alembic via ruff

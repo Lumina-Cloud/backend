@@ -10,3 +10,9 @@ format:
 compose:
 	docker-compose build
 	docker-compose up
+
+migrate:
+	alembic upgrade head
+
+create-migration:
+	alembic revision --autogenerate -m '${msg}'
