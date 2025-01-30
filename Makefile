@@ -5,7 +5,8 @@ prod:
 	uvicorn src.main:app --port 8000 --host 0.0.0.0
 
 format:
-	ruff check --fix
+	ruff check .
+	ruff fix .
 
 compose:
 	docker-compose build

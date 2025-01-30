@@ -21,6 +21,13 @@ orjson = "^3.10.15"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.9.3"
 
+[tool.ruff]
+line-height = 120
+fix = true
+type_checking = true
+[tool.ruff.format]
+quote_style = "double"
+sort_imports = true
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
