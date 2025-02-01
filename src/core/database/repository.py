@@ -1,6 +1,8 @@
-from sqlalchemy.ext.asyncio import AsyncSession
+from typing import Generic, Type, TypeVar
+
 from sqlalchemy import select
-from typing import TypeVar, Generic, Type
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from src.core.database.model import BaseModel
 
 ModelType = TypeVar("ModelType", bound=BaseModel)
@@ -11,9 +13,7 @@ class BaseRepository(Generic[ModelType]):
 
     def __init__(self, session: AsyncSession):
         if not self.model:
-            raise NotImplementedError(
-                message=("Can not initiate the class without model attribute")
-            )
+            raise NotImplementedError(message=("Can not initiate the class without model attribute"))
 
         self.session = session
 
