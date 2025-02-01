@@ -6,7 +6,7 @@ prod:
 
 format:
 	ruff check .
-	ruff fix .
+	ruff format .
 
 compose:
 	docker-compose build
