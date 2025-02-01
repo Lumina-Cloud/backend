@@ -1,11 +1,11 @@
 import logging
+from typing import TYPE_CHECKING, Optional
 
-from typing import Optional, TYPE_CHECKING
 from fastapi_users import BaseUserManager, IntegerIDMixin
 
 from src.core.config import settings
-from src.models import User
 from src.core.types.user_id import UserIDType
+from src.models import User
 
 if TYPE_CHECKING:
     from fastapi import Request
@@ -38,6 +38,4 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, UserIDType]):
         token: str,
         request: Optional["Request"] = None,
     ):
-        log.warning(
-            "Verification requested for user %r. Verification token %r", user.id, token
-        )
+        log.warning("Verification requested for user %r. Verification token %r", user.id, token)

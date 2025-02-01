@@ -8,10 +8,9 @@ Create Date: 2025-01-27 20:22:47.237156
 
 from typing import Sequence, Union
 
-from alembic import op
 import fastapi_users_db_sqlalchemy
 import sqlalchemy as sa
-
+from alembic import op
 
 # revision identifiers, used by Alembic.
 revision: str = "018b162339cf"
@@ -33,9 +32,7 @@ def upgrade() -> None:
         sa.ForeignKeyConstraint(["user_id"], ["user.id"], ondelete="CASCADE"),
         sa.PrimaryKeyConstraint("token"),
     )
-    op.create_index(
-        op.f("ix_accesstoken_created_at"), "accesstoken", ["created_at"], unique=False
-    )
+    op.create_index(op.f("ix_accesstoken_created_at"), "accesstoken", ["created_at"], unique=False)
 
 
 def downgrade() -> None:

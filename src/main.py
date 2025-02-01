@@ -1,9 +1,11 @@
-from fastapi import FastAPI
-from fastapi.responses import ORJSONResponse
-from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
-from src.core.database.db_helper import db_helper
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import ORJSONResponse
+
 from src.api.controllers import api_router
+from src.core.database.db_helper import db_helper
 
 
 @asynccontextmanager
