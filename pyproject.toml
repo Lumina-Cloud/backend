@@ -22,12 +22,18 @@ orjson = "^3.10.15"
 ruff = "^0.9.3"
 
 [tool.ruff]
-line-height = 120
 fix = true
-type_checking = true
+line-length = 120
+indent-width = 4
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+ignore = []
+fixable = ["ALL"]
+unfixable = []
 [tool.ruff.format]
-quote_style = "double"
-sort_imports = true
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
